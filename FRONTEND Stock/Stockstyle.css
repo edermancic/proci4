@@ -1,0 +1,28 @@
+html{
+    font-family: 'Staatliches', cursive;
+}
+#menu{
+    background:#faece4; 
+    color:rgb(0, 0, 0);
+    border:3px solid #ff7429;
+    margin-right: 80%;
+    margin-left: 2%;
+    margin-top:-40px; 
+    font-size:22px;
+}
+input{
+    background-color: rgb(235, 235, 235);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    opacity: 75%;
+    padding:8px;
+    border-radius: 6px;
+}
+tbody{
+    background-color: rgb(235, 235, 235);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    opacity: 75%;
+    padding:8px;
+    border-radius: 6px;
+}

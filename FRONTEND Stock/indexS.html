@@ -1,0 +1,137 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Stock Ideal</title>
+    <link rel="stylesheet" href="Stockstyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap">
+    
+</head>
+<body>
+    <div id="app">
+        <!-- Menú -->
+        <div id="menu">
+            <li v-on:click="menu=1">REGISTRO PRODUCTOS</li>
+            <li v-on:click="menu=2">VER PRODUCTOS</li>
+            <li v-on:click="menu=3">ELIMINAR</li>
+            <li v-on:click="menu=4">BUSCAR</li>
+        </div>
+        
+        <!-- Guarda productos -->
+        <div v-if="menu==1">
+            <h1>REGISTAR PRODUCTOS</h1>
+            <label>Codigo:</label>
+            <input type="text" v-model="id"><br><br>
+            <label>Nombre Producto:</label>
+            <input type="text" v-model="nombreproduc"><br><br>
+            <label>Nombre Provedor:</label>
+            <input type="text" v-model="nombreprovedor"><br><br>
+            <label>Stock optimo:</label>
+            <input type="number" v-model="optimo"><br><br>
+            <label>Stock Actual:</label>
+            <input type="number" v-model="actual"><br><br>
+            <input type="button" value="GUARDAR" v-on:click="saveproduct"><br><br><br>
+        </div>
+        
+        <!-- Consultar productos -->
+        <div v-if="menu==2">
+            <input type="button" value="Ver Productos" v-on:click="lookproduct">
+            <table border="3">
+                <thead>
+                    <tr>
+                        <td>Codigo</td>
+                        <td>Nombre Producto</td>
+                        <td>Nombre Provedor</td>
+                        <td>Stock Optimo</td>
+                        <td>Stock Actual</td>
+                    </tr>
+                
+                    <tbody>
+                        <tr v-for="productos in verproductos">
+                            <td>{{productos.id}}</td>
+                            <td>{{productos.nombreproduc}}</td>
+                            <td>{{productos.nombreprovedor}}</td>
+                            <td>{{productos.optimo}}</td>
+                            <td>{{productos.actual}}</td>
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+
+        <!-- eliminar -->
+        <div v-if="menu==3">
+            <h1>Eliminar Producto</h1>
+            <label>Ingrese Codigo</label>
+            <input type="text" v-model="idproduct">
+            <input type="button" value="ELIMINAR" v-on:click="deletep">
+        </div>
+       
+        <!-- Buscar -->
+        <div v-if="menu==4">
+            <h1>Buscador</h1>
+            <h2>Producto</h2>
+            <label>Nombre Producto</label><br>
+            <input type="text" v-model="buscadornombre">
+            <input type="button" value="BUSCAR" v-on:click="busnombre">
+            <table border="2">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre Producto</th>
+                        <th>Nombre Provedor</th>
+                        <th>Optimo</th>
+                        <th>Actual</th>
+                    </tr>
+                    <tbody>
+                        <tr v-for="productos in nombres">
+                            <td>{{productos.id}}</td>
+                            <td>{{productos.nombreproduc}}</td>
+                            <td>{{productos.nombreprovedor}}</td>
+                            <td>{{productos.optimo}}</td>
+                            <td>{{productos.actual}}</td>
+                        </tr>
+                    </tbody>
+                   
+                </thead>
+                
+            </table>
+            <div>
+                <h2>Provedor</h2>
+                <label>Nombre Provedor</label><br>
+                <input type="text" v-model="buscadorprovedor">
+                <input type="button" value="BUSCAR" v-on:click="busprovedor">
+                <table border="2">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre Producto</th>
+                            <th>Nombre Provedor</th>
+                            <th>Optimo</th>
+                            <th>Actual</th>
+                        </tr>
+                        <tbody>
+                            <tr v-for="productos in provedor">
+                                <td>{{productos.id}}</td>
+                                <td>{{productos.nombreproduc}}</td>
+                                <td>{{productos.nombreprovedor}}</td>
+                                <td>{{productos.optimo}}</td>
+                                <td>{{productos.actual}}</td>
+                                </tr>
+                            </tbody>
+                    
+                        </thead>
+                     </table>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+    
+</body>
+<script src="java js/vue.js"></script>
+<script src="java js/appS.js"></script>
+<script src="java js/sweetalert2@11.js"></script>
+</html>
